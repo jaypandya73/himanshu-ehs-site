@@ -3,478 +3,1587 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Himanshu Pandya – Certified EHS Consultant with 25+ years of experience in workplace safety, environmental compliance, and audit consulting across industries.">
-    <title>Himanshu Pandya - Safety & Environmental Health Consultant</title>
+    <title>Ved EHS Consultancy - Expert Safety Consulting by Himanshu Pandya</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #16a34a;
+            --accent: #f59e0b;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gradient: linear-gradient(135deg, #1e3a8a 0%, #16a34a 100%);
+        }
+
         html {
             scroll-behavior: smooth;
+            width: 100%;
+            overflow-x: hidden;
         }
-        .hero-section {
-            background: linear-gradient(to right, #1e40af, #3b82f6);
-        }
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #3b82f6;
-            transition: width 0.3s;
-        }
-        .nav-link:hover::after {
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
             width: 100%;
         }
+
+        .page-wrapper {
+            width: 100%;
+            overflow-x: hidden;
+            position: relative;
+            min-width: 320px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            max-width: 100vw;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .hide {
+          display: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--gradient);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            position: relative;
+            overflow: hidden;
+            max-width: 100vw;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(circle, rgba(30, 58, 138, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 40%;
+            height: 40%;
+            background: radial-gradient(circle, rgba(22, 163, 74, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .primary-button {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+        }
+
+        .primary-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(30, 58, 138, 0.4);
+        }
+
+        .secondary-button {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-button:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInUp 0.8s ease 0.6s both;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: var(--gradient);
+            border-radius: 50%;
+            opacity: 0.08;
+            filter: blur(120px);
+            pointer-events: none;
+        }
+
+        .hero-decoration {
+            margin-bottom: 2rem;
+            animation: floatAnimation 6s ease-in-out infinite;
+        }
+
+        @keyframes floatAnimation {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-stats {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            position: relative;
+            z-index: 1;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .hero-stats:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .trust-indicators {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .indicator-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .indicator-item svg {
+            flex-shrink: 0;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .badge-icon {
+            width: 20px;
+            height: 20px;
+            fill: var(--secondary);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: center;
+            padding-top: 2rem;
+        }
+
+        .about-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-photo {
+            width: 100%;
+            max-width: 450px;
+            height: 500px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .experience-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: var(--gradient);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        .badge-number {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .badge-label {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .about-content {
+            max-width: 800px;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .about-content h3 {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .about-content .title {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .about-content p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        .credentials {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+        }
+
+        .credential-item span {
+            flex: 1;
+        }
+
+        .credential-icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--secondary);
+        }
+
+        .certifications-section {
+            margin: 2.5rem 0 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 15px;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .certifications-title {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .certifications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .certification-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .cert-icon {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
         }
-        .highlight {
-            display: inline-block;
-            position: relative;
+
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
-        .highlight::after {
-            content: '';
-            position: absolute;
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #dbeafe 0%, #bbf7d0 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: #6b7280;
+            line-height: 1.8;
+        }
+
+        /* Industries Section */
+        .industries {
+            padding: 5rem 2rem;
+            background: #f9fafb;
+        }
+
+        .industries-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .industry-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .industry-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .industry-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .industry-item h4 {
+            font-size: 1.125rem;
+            color: var(--dark);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-white {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem 1rem;
             width: 100%;
-            height: 8px;
-            bottom: 0;
-            left: 0;
-            background-color: rgba(59, 130, 246, 0.2);
-            z-index: -1;
+            max-width: 100vw;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 2rem 0;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+                padding: 2rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-image {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .trust-indicators {
+                margin-top: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 1rem;
+                background: #f9fafb;
+                border-radius: 10px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                padding: 3rem 0;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                padding: 0;
+                gap: 0;
+            }
+
+            .about-image {
+                margin-bottom: 0;
+                display: block;
+                position: relative;
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .photo-wrapper {
+                position: relative;
+                display: inline-block;
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .about-photo {
+                height: auto;
+                max-height: 400px;
+                max-width: 100%;
+                width: auto;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            .experience-badge {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: -50px auto 30px;
+                display: inline-block;
+                width: auto;
+                padding: 1.5rem 2rem;
+                z-index: 10;
+            }
+
+            .about-content {
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .about-content h2 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .about-content h3 {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .about-content .title {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+                color: #6b7280;
+            }
+
+            .about-content p {
+                text-align: left;
+                font-size: 1rem;
+                line-height: 1.7;
+                margin-bottom: 1.5rem;
+            }
+
+            .credentials {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                max-width: 100%;
+                margin: 2rem 0;
+                gap: 1rem;
+            }
+
+            .credential-item {
+                width: 100%;
+                justify-content: flex-start;
+                padding: 0.75rem;
+                background: #f9fafb;
+                border-radius: 10px;
+                font-size: 0.95rem;
+            }
+
+            .certifications-section {
+                padding: 1.5rem;
+                margin: 1.5rem 0;
+            }
+
+            .certifications-title {
+                font-size: 1.125rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .certification-item {
+                font-size: 0.95rem;
+            }
+
+            .trust-indicators {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services, .industries, .cta-section {
+                padding: 3rem 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .industries-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .industry-item {
+                padding: 1.5rem 1rem;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+                padding: 0 1rem;
+            }
+
+            .cta-content p {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+
+            .footer-content {
+                padding: 0 1rem;
+                text-align: center;
+            }
+
+            .footer-section {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 16px;
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+            }
+
+            section {
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
+            }
+
+            .hero-content h1 {
+                font-size: 1.75rem;
+                line-height: 1.3;
+                padding: 0 0.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-content p {
+                font-size: 0.95rem;
+                padding: 0 0.5rem;
+                line-height: 1.5;
+            }
+
+            .hero-buttons {
+                padding: 0 0.5rem;
+                gap: 0.75rem;
+            }
+
+            .primary-button, .secondary-button {
+                font-size: 0.9rem;
+                padding: 0.875rem 1.5rem;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .trust-badges {
+                padding: 0 0.5rem;
+                gap: 0.75rem;
+            }
+
+            .badge {
+                font-size: 0.85rem;
+                padding: 0.6rem 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .industries-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                padding: 2.5rem 0;
+            }
+
+            .about-image {
+                padding: 0 1.5rem;
+                margin-bottom: 0;
+            }
+
+            .photo-wrapper {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .about-photo {
+                height: auto;
+                max-height: 350px;
+                max-width: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 15px;
+            }
+
+            .experience-badge {
+                position: relative;
+                margin: -40px auto 20px;
+                transform: none;
+                padding: 1.25rem 1.75rem;
+                font-size: 0.9rem;
+                border-radius: 15px;
+            }
+
+            .badge-number {
+                font-size: 1.75rem;
+            }
+
+            .badge-label {
+                font-size: 0.8rem;
+            }
+
+            .about-content {
+                padding: 0 1.5rem;
+                margin-top: 0.5rem;
+            }
+
+            .about-content h2 {
+                font-size: 1.75rem;
+                padding: 0;
+                margin-bottom: 0.75rem;
+            }
+
+            .about-content h3 {
+                font-size: 1.3rem;
+                padding: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .about-content .title {
+                font-size: 0.95rem;
+                padding: 0;
+                line-height: 1.4;
+                margin-bottom: 1.25rem;
+            }
+
+            .about-content p {
+                font-size: 0.95rem;
+                line-height: 1.65;
+                text-align: left;
+                padding: 0;
+                margin-bottom: 1.25rem;
+                color: #4b5563;
+            }
+
+            .credentials {
+                padding: 0;
+                width: 100%;
+                gap: 0.75rem;
+                margin: 1.5rem 0;
+            }
+
+            .credential-item {
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+                background: linear-gradient(135deg, #f0f9ff 0%, #f9fafb 100%);
+                border-radius: 10px;
+                margin: 0;
+                border: 1px solid #e5e7eb;
+                gap: 0.75rem;
+            }
+
+            .credential-icon {
+                width: 20px;
+                height: 20px;
+                min-width: 20px;
+            }
+
+            .certifications-section {
+                padding: 1.25rem;
+                margin: 1.25rem 0;
+                background: #f9fafb;
+                border: 1px solid #e5e7eb;
+            }
+
+            .certifications-title {
+                font-size: 1.05rem;
+                margin-bottom: 1rem;
+            }
+
+            .certifications-list {
+                gap: 0.75rem;
+            }
+
+            .certification-item {
+                font-size: 0.9rem;
+                gap: 0.75rem;
+            }
+
+            .cert-icon {
+                width: 18px;
+                height: 18px;
+                min-width: 18px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .cta-white {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+                font-size: 0.95rem;
+                padding: 1rem 1.5rem;
+            }
+
+            .services {
+                padding: 2.5rem 0;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+                padding: 0 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .section-header p {
+                font-size: 0.95rem;
+                padding: 0 1.5rem;
+                line-height: 1.5;
+            }
+
+            .service-card {
+                margin: 0 1rem 1rem;
+                padding: 2rem 1.5rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.25rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .service-card p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .about-content .primary-button {
+                font-size: 0.95rem;
+                padding: 0.875rem 1.5rem;
+                margin-top: 1.5rem;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .nav-container {
+                padding: 0.875rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .cta-button {
+                font-size: 0.85rem;
+                padding: 0.6rem 1rem;
+            }
+
+            .hero-decoration {
+                transform: scale(0.6);
+                margin-bottom: 1rem;
+            }
+
+            .hero-stats {
+                width: 100%;
+                max-width: 350px;
+                margin: 1.5rem auto;
+                padding: 1.5rem;
+            }
+
+            .stat-item h3 {
+                font-size: 2rem;
+            }
+
+            .stat-item p {
+                font-size: 0.85rem;
+            }
+
+            .indicator-item {
+                font-size: 0.85rem;
+                padding: 0 1rem;
+                width: 100%;
+                text-align: left;
+                margin-bottom: 0.5rem;
+            }
+
+            .industries {
+                padding: 2.5rem 1rem;
+            }
+
+            .industry-item {
+                padding: 1.25rem;
+            }
+
+            .industry-item h4 {
+                font-size: 1rem;
+            }
+
+            .cta-section {
+                padding: 2.5rem 1rem;
+            }
+
+            .cta-content h2 {
+                font-size: 1.75rem;
+                padding: 0;
+                margin-bottom: 0.75rem;
+            }
+
+            .cta-content p {
+                font-size: 1rem;
+                padding: 0;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+
+            .primary-button, .secondary-button {
+                font-size: 0.85rem;
+                padding: 0.75rem 1.25rem;
+            }
+
+            .about-photo {
+                max-height: 280px;
+            }
+
+            .experience-badge {
+                margin: -35px auto 20px;
+                padding: 1rem 1.5rem;
+            }
+
+            .badge-number {
+                font-size: 1.5rem;
+            }
+
+            .about-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .credential-item {
+                font-size: 0.85rem;
+                padding: 0.6rem 0.8rem;
+            }
+
+            .certifications-section {
+                padding: 1rem;
+            }
+
+            .certifications-title {
+                font-size: 1rem;
+            }
+
+            .certification-item {
+                font-size: 0.85rem;
+            }
+
+            .cert-icon {
+                width: 16px;
+                height: 16px;
+            }
         }
     </style>
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Himanshu Pandya",
-          "jobTitle": "EHS Consultant",
-          "url": "https://vedehsconsultancy.com",
-          "sameAs": [
-            "https://www.linkedin.com/in/himanshu-pandya-a22738178/"
-          ],
-          "worksFor": {
-            "@type": "Organization",
-            "name": "Ved EHS Consultancy Services"
-          }
-        }
-    </script>
 </head>
-<body class="font-sans text-gray-800 bg-gray-50">
-    <!-- Header -->
-    <header class="bg-white shadow-md fixed w-full z-10">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div>
-                <h1 class="text-2xl font-bold text-blue-800">Himanshu Pandya</h1>
-                <p class="text-sm text-gray-600">Safety & Environmental Health Consultant</p>
-            </div>
-            
-            <!-- Mobile menu button -->
-            <button class="md:hidden text-gray-700" id="menu-button">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-            
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="#about" class="nav-link text-gray-600 hover:text-blue-800">About</a></li>
-                    <li><a href="#services" class="nav-link text-gray-600 hover:text-blue-800">Services</a></li>
-                    <li><a href="#expertise" class="nav-link text-gray-600 hover:text-blue-800">Expertise</a></li>
-                    <li><a href="#projects" class="nav-link text-gray-600 hover:text-blue-800">Projects</a></li>
-
-                    <li><a href="#contact" class="nav-link bg-blue-100 text-blue-700 px-4 py-1 rounded-full">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-        
-        <!-- Mobile Navigation -->
-        <nav class="md:hidden bg-white py-4 border-t hidden" id="mobile-menu">
-            <ul class="flex flex-col space-y-3 px-4">
-                <li><a href="#about" class="text-gray-600 hover:text-blue-800">About</a></li>
-                <li><a href="#services" class="text-gray-600 hover:text-blue-800">Services</a></li>
-                <li><a href="#expertise" class="text-gray-600 hover:text-blue-800">Expertise</a></li>
-                <li><a href="#projects" class="text-gray-600 hover:text-blue-800">Projects</a></li>
-
-                <li><a href="#contact" class="text-gray-600 hover:text-blue-800">Contact</a></li>
+<body>
+    <div class="page-wrapper">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Ved EHS Consultancy</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#industries">Industries</a></li>
+                <li><a href="#resources">Resources</a></li>
             </ul>
-        </nav>
-    </header>
+            <a href="https://wa.me/+919879757009" target="_blank" rel="noopener noreferrer" class="cta-button">Get Free Consultation</a>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section text-white pt-32 pb-16">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Expert Safety & Environmental Consulting</h1>
-                    <p class="text-xl mb-8">Protecting your people, environment, and business with 25+ years of industry experience.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#services" class="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium hover:bg-blue-100 transition-colors">
-                            Explore Services
-                        </a>
-                        <a href="#contact" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-700 transition-colors">
-                            Contact Me
-                        </a>
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Transforming Workplace Safety with 34 Years of Excellence</h1>
+                <p>Former Head of HSE at Bayer CropScience, now dedicated to helping organizations build world-class safety cultures and achieve zero-incident workplaces.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/+919879757009" target="_blank" rel="noopener noreferrer" class="primary-button">
+                        Schedule Safety Assessment
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#services" class="secondary-button">Explore Services</a>
+                </div>
+                <div class="trust-badges">
+                    <div class="badge">
+                        <svg class="badge-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        ISO 14001 & 45001 Expert
+                    </div>
+                    <div class="badge">
+                        <svg class="badge-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                        34+ Years Experience
                     </div>
                 </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <div class="bg-blue-100 rounded-full h-64 w-64 border-4 border-white shadow-lg flex items-center justify-center">
-                        <img src="himanshu-latest-pic.jpg" alt="Profile" class="rounded-full">
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-bg"></div>
+                <div class="hero-decoration">
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" stroke="url(#gradient)" stroke-width="2" opacity="0.3"/>
+                        <path d="M50 20 L65 35 L65 55 L50 70 L35 55 L35 35 Z" fill="url(#gradient)" opacity="0.2"/>
+                        <path d="M50 30 L60 40 L60 50 L50 60 L40 50 L40 40 Z" stroke="url(#gradient)" stroke-width="2" fill="none"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="hero-stats">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3>3</h3>
+                            <p>Safety Audits</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>2</h3>
+                            <p>Industries Served</p>
+                        </div>
+                        <div class="stat-item hide">
+                            <h3>95%</h3>
+                            <p>Incident Reduction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trust-indicators">
+                    <div class="indicator-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--secondary)">
+                            <path d="M9 11H7a5 5 0 0 1 0-10h2m10 0h2a5 5 0 0 1 0 10h-2m-8-5h8"/>
+                        </svg>
+                        <span>Former Head of HSE - Bayer</span>
+                    </div>
+                    <div class="indicator-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--secondary)">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span>ISO 14001 & 45001 Certified</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-12">
-        <!-- About Section -->
-        <section id="about" class="mb-10 pt-10">
-            <div class="bg-white p-8 rounded-lg shadow-md mb-8">
-                <div class="flex items-center mb-6">
-                    <i class="fas fa-user text-blue-600 mr-3 text-2xl"></i>
-                    <h2 class="text-3xl font-bold text-blue-800">About Me</h2>
-                </div>
-                
-                <div class="flex flex-col md:flex-row gap-8">
-                    <div class="md:w-2/3">
-                        <p class="mb-4 text-lg leading-relaxed">
-                            I am Himanshu Pandya, a seasoned Environmental Health and Safety professional with over 34 years of rich industrial experience. I retired as Head of HSE from Bayer CropScience Ltd, a renowned German Chemical Multinational Company, where I implemented comprehensive safety protocols and environmental compliance measures across operations. My expertise spans safety audits, regulatory compliance, hazard identification, risk assessment, and developing sustainable EHS management systems. Throughout my career, I've successfully reduced workplace incidents, improved environmental performance, and cultivated strong safety cultures. Now working as a freelance EHS Consultant and Trainer, I bring my extensive multinational experience to help organizations enhance their safety performance, comply with regulations, and protect both their workforce and the environment.
-                        </p>
-                        <!-- <p class="mb-4 text-lg leading-relaxed">
-                            My approach combines rigorous technical expertise with practical implementation strategies that work in real-world environments. I believe that effective safety programs must balance regulatory compliance with creating a genuine culture of safety awareness at all organizational levels.
-                        </p> -->
-                        
-                        <!-- list of certificates -->
-                        <!-- <div class="mt-8">
-                            <h3 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
-                                <i class="fas fa-award mr-2"></i> Professional Certifications
-                            </h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-                                <div class="flex items-center bg-blue-50 p-3 rounded-lg">
-                                    <i class="fas fa-check-circle text-green-600 mr-2"></i>
-                                    <span>Certified Safety Professional (CSP)</span>
-                                </div>
-                                <div class="flex items-center bg-blue-50 p-3 rounded-lg">
-                                    <i class="fas fa-check-circle text-green-600 mr-2"></i>
-                                    <span>Certified Industrial Hygienist (CIH)</span>
-                                </div>
-                                <div class="flex items-center bg-blue-50 p-3 rounded-lg">
-                                    <i class="fas fa-check-circle text-green-600 mr-2"></i>
-                                    <span>Certified Environmental Health & Safety Professional</span>
-                                </div>
-                                <div class="flex items-center bg-blue-50 p-3 rounded-lg">
-                                    <i class="fas fa-check-circle text-green-600 mr-2"></i>
-                                    <span>OSHA Authorized Safety Trainer</span>
-                                </div>
-                                <div class="flex items-center bg-blue-50 p-3 rounded-lg">
-                                    <i class="fas fa-check-circle text-green-600 mr-2"></i>
-                                    <span>Certified Hazardous Materials Manager</span>
-                                </div>
-                            </div>
-                        </div>
-                         -->
-                        <div class="mt-6">
-                            <h3 class="text-xl font-semibold text-blue-700 mb-4">Professional Philosophy</h3>
-                            <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-blue-600 italic">
-                                "Safety is not just compliance with regulations—it's creating an environment where every person instinctively makes decisions that protect themselves and others. My mission is to help organizations build that culture from the ground up."
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="md:w-1/3 bg-blue-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-blue-700 mb-4">Contact Information</h3>
-                        
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <i class="fas fa-envelope text-blue-600 mt-1"></i>
-                                <div>
-                                    <p class="font-medium">Email</p>
-                                    <p>himanshupandya81@gmail.com</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start gap-3">
-                                <i class="fas fa-phone text-blue-600 mt-1"></i>
-                                <div>
-                                    <p class="font-medium">Phone</p>
-                                    <p>+91 9879757009</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start gap-3">
-                                <i class="fas fa-map-marker-alt text-blue-600 mt-1"></i>
-                                <div>
-                                    <p class="font-medium">Location</p>
-                                    <p>Gandhinagar</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start gap-3">
-                                <i class="fab fa-linkedin text-blue-600 mt-1"></i>
-                                <div>
-                                    <p class="font-medium">LinkedIn</p>
-                                    <a href="#" class="text-blue-600 hover:underline">https://www.linkedin.com/in/himanshu-pandya-a22738178/</a>
-                                </div>
-                            </div>
-
-                           <!--  <div class="pt-4 mt-4 border-t border-blue-100">
-                                <a href="#contact" class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center">
-                                    <i class="fas fa-file-alt mr-2"></i>
-                                    Request Resume
-                                </a>
-                            </div> -->
-                        </div>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <div class="photo-wrapper">
+                    <img src="https://vedehsconsultancy.com/himanshu-latest-pic.jpg"
+                         alt="Himanshu Pandya - Environmental Health and Safety Expert"
+                         class="about-photo">
+                    <div class="experience-badge">
+                        <div class="badge-number">34+</div>
+                        <div class="badge-label">Years of Excellence</div>
                     </div>
                 </div>
             </div>
-            
-            <div class="bg-white p-8 rounded-lg shadow-md">
-                <h3 class="text-2xl font-bold text-blue-800 mb-6">Industries Served</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-blue-50 p-6 rounded-lg">
-                        <h4 class="text-xl font-semibold text-blue-700 mb-3">Manufacturing</h4>
-                        <p>Specializing in factory safety, machine guarding, industrial hygiene, and production process safety integration.</p>
+            <div class="about-content">
+                <h2>Meet Your Safety Expert</h2>
+                <h3>Himanshu Pandya</h3>
+                <p class="title">Former Head of HSE - Bayer CropScience Ltd</p>
+                <p>With over three decades of experience in Environmental Health and Safety, I've dedicated my career to creating safer workplaces across multinational corporations. My journey at Bayer CropScience as Head of HSE equipped me with world-class safety methodologies and a deep understanding of regulatory compliance.</p>
+                <p>Now, as an independent consultant, I bring this wealth of experience to help organizations like yours build robust safety cultures, achieve zero incidents, and ensure full regulatory compliance.</p>
+                <div class="credentials">
+                    <div class="credential-item">
+                        <svg class="credential-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 11H7a5 5 0 0 1 0-10h2m10 0h2a5 5 0 0 1 0 10h-2m-8-5h8"/>
+                        </svg>
+                        <span>ISO 14001 & 45001 Expert</span>
                     </div>
-                    
-                    <div class="bg-blue-50 p-6 rounded-lg">
-                        <h4 class="text-xl font-semibold text-blue-700 mb-3">Construction</h4>
-                        <p>Site safety management, contractor safety programs, fall protection, and OSHA construction standard compliance.</p>
+                    <div class="credential-item">
+                        <svg class="credential-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span>OSHA Compliance Support</span>
                     </div>
-                    
-                    <div class="bg-blue-50 p-6 rounded-lg">
-                        <h4 class="text-xl font-semibold text-blue-700 mb-3">Healthcare</h4>
-                        <p>Infection control, patient safety, laboratory safety, and healthcare-specific regulatory compliance.</p>
-                    </div>
-                    
-                    <div class="bg-blue-50 p-6 rounded-lg">
-                        <h4 class="text-xl font-semibold text-blue-700 mb-3">Chemical Processing</h4>
-                        <p>Process safety management, chemical handling, environmental compliance, and emergency response planning.</p>
-                    </div>
-                    
-                    <div class="bg-blue-50 p-6 rounded-lg">
-                        <h4 class="text-xl font-semibold text-blue-700 mb-3">Logistics & Warehousing</h4>
-                        <p>Material handling safety, forklift operations, loading dock safety, and warehouse optimization.</p>
-                    </div>
-                    
-                    <div class="bg-blue-50 p-6 rounded-lg">
-                        <h4 class="text-xl font-semibold text-blue-700 mb-3">General Industry</h4>
-                        <p>Comprehensive safety program development, training, and compliance for diverse work environments.</p>
+                    <div class="credential-item">
+                        <svg class="credential-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                        </svg>
+                        <span>HAZOP & Risk Assessment Specialist</span>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="">
-
-            <div class="bg-white p-8 rounded-lg shadow-md mb-8">
-            <div class="flex items-center mb-8">
-                <i class="fas fa-cogs text-blue-600 mr-3 text-2xl"></i>
-                <h2 class="text-3xl font-bold text-blue-800">Professional EHS Services</h2>
-            </div>
-
-            <p class="text-lg mb-10 max-w-4xl">
-                With over 34 years of industry experience, including as Head – HSE at Bayer CropScience Ltd, I offer specialized Environmental Health & Safety services that help organizations enhance safety performance, comply with regulations, and protect their workforce and the environment.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                <!-- Audits & Compliance Card -->
-                <div class="service-card bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
-                            <i class="fas fa-clipboard-check text-xl"></i>
+                <div class="certifications-section">
+                    <h4 class="certifications-title">Regulatory Compliance & Certifications</h4>
+                    <div class="certifications-list">
+                        <div class="certification-item">
+                            <svg class="cert-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span>ISO 14001 (Environmental Management)</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-blue-700">Audits & Compliance</h3>
-                    </div>
-
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Conducting Third-party Safety Audits (TPSA) as per IS 14489 with detailed reporting and checklists</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Support in compliance of EHS audit findings & GPCB related observations/non-conformances</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Risk Assessment Card -->
-                <div class="service-card bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
-                            <i class="fas fa-search text-xl"></i>
+                        <div class="certification-item">
+                            <svg class="cert-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span>ISO 45001 (Occupational Health & Safety)</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-blue-700">Risk Assessment</h3>
-                    </div>
-
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Facilitation in conducting P&PS Risk Assessment (Hazop study)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Conducting OSHRA/JSA (Job Safety Analysis) of plant activities</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Management Systems Card -->
-                <div class="service-card bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
-                            <i class="fas fa-tasks text-xl"></i>
+                        <div class="certification-item">
+                            <svg class="cert-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>OSHA Compliance Support</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-blue-700">Management Systems</h3>
-                    </div>
-
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>HSE Management system implementation</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Implementation of Management of Change procedure</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Conducting IMS (ISO 9001:2015 & 14001:2015) Training</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Safety Culture Development Card -->
-                <div class="service-card bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
-                            <i class="fas fa-users text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-blue-700">Safety Culture Development</h3>
-                    </div>
-
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Implementation of Behavior-Based Safety (BBS) Programs with expert training</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Near miss reporting system implementation to encourage EHS Culture</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Safety Work Permit system implementation</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Incident Management Card -->
-                <div class="service-card bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
-                            <i class="fas fa-exclamation-triangle text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-blue-700">Incident Management</h3>
-                    </div>
-
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Accident / Incident reduction through systematic implementation approaches</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Accident / Incident reporting system development and root cause investigation</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Training & Emergency Response Card -->
-                <div class="service-card bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
-                            <i class="fas fa-graduation-cap text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-blue-700">Training & Emergency Response</h3>
-                    </div>
-
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Conducting need-based EHS trainings (PPE, Chemical Safety, Fire Fighting, etc.)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Preparation of On-site Emergency Response plans</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0"></i>
-                            <span>Guidance in conducting effective Mock drills</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Highlight Box -->
-            <div class="mt-12 bg-blue-50 p-6 rounded-lg border border-blue-100 max-w-4xl mx-auto">
-                <h3 class="text-xl font-semibold text-blue-700 mb-4">How My Services Drive Results</h3>
-                <p class="mb-4">
-                    My comprehensive approach to EHS consulting focuses on creating sustainable safety systems that deliver measurable improvements in:
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-                        <i class="fas fa-chart-line text-blue-600 text-2xl mb-3"></i>
-                        <h4 class="font-medium text-blue-700 mb-1">Reduced Incident Rates</h4>
-                        <p class="text-sm">Proven methodologies to identify and eliminate hazards before incidents occur</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-                        <i class="fas fa-shield-alt text-blue-600 text-2xl mb-3"></i>
-                        <h4 class="font-medium text-blue-700 mb-1">Regulatory Compliance</h4>
-                        <p class="text-sm">Systematic approaches to achieve and maintain full compliance with all applicable regulations</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-                        <i class="fas fa-seedling text-blue-600 text-2xl mb-3"></i>
-                        <h4 class="font-medium text-blue-700 mb-1">Safety Culture</h4>
-                        <p class="text-sm">Develop an organization-wide safety mindset that becomes part of daily operations</p>
                     </div>
                 </div>
-
-                <div class="mt-8 text-center">
-                    <a href="#contact" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-block">
-                        Request a Consultation
-                    </a>
-                </div>
+                <a href="https://wa.me/+919879757009" target="_blank" rel="noopener noreferrer" class="primary-button">Let's Discuss Your Safety Needs</a>
             </div>
         </div>
+    </section>
 
-            <!-- contact me -->
-            <div class="bg-white p-8 rounded-lg shadow-md text-center" id="contact">
-              <div class="flex items-center justify-center mb-6">
-                <i class="fas fa-envelope text-blue-600 text-2xl mr-3"></i>
-                <h2 class="text-3xl font-bold text-blue-800">Contact Me</h2>
-              </div>
-              <p class="text-lg mb-4">Email: <a href="mailto:himanshupandya81@gmail.com" class="text-blue-700 hover:underline">himanshupandya81@gmail.com</a></p>
-              <p class="text-lg">Mobile: <span class="text-blue-700 font-semibold">+91 9879757009</span></p>
-              <a href="https://wa.me/+919879757009" target="_blank" class="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors inline-flex items-center justify-center">
-                        <i class="fab fa-whatsapp text-xl mr-2"></i> WhatsApp Me
-                    </a>
-
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>Comprehensive EHS Solutions</h2>
+            <p>Tailored environmental health and safety services designed to protect your workforce and ensure regulatory compliance</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Safety Audits & Compliance</h3>
+                <p>Third-party safety audits as per IS 14489, ISO 14001 & 45001 standards with comprehensive reporting and actionable recommendations for continuous improvement.</p>
             </div>
-        </section>
+            <div class="service-card">
+                <div class="service-icon">⚠️</div>
+                <h3>Risk Assessment</h3>
+                <p>HAZOP studies, OSHRA/JSA implementation, and comprehensive risk matrices to identify and mitigate workplace hazards proactively.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Management Systems</h3>
+                <p>Implementation of HSE management systems, ISO 14001 (Environmental) & ISO 45001 (OH&S) certifications, and Management of Change procedures for sustainable safety excellence.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👥</div>
+                <h3>BBS & Safety Culture</h3>
+                <p>Behavior-Based Safety programs, near-miss reporting systems, and cultural transformation initiatives to embed safety in your DNA.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚨</div>
+                <h3>Incident Management</h3>
+                <p>Systematic incident reduction approaches, root cause analysis, and investigation systems to prevent recurrence.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎓</div>
+                <h3>Training & Emergency Response</h3>
+                <p>Customized EHS training programs, emergency response planning, and mock drill facilitation for preparedness.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- Contact me -->
-        <footer class="text-center bg-blue-800 text-white p-6 mt-10">
-        &copy; 2025 Himanshu Pandya | Ved EHS Consultancy Services
-      </footer>
+    <!-- Industries Section -->
+    <section class="industries" id="industries">
+        <div class="section-header">
+            <h2>Industries We Serve</h2>
+            <p>Specialized safety solutions for diverse industrial sectors</p>
+        </div>
+        <div class="industries-grid">
+            <div class="industry-item">
+                <div class="industry-icon">🏭</div>
+                <h4>Manufacturing</h4>
+            </div>
+            <div class="industry-item">
+                <div class="industry-icon">🏗️</div>
+                <h4>Construction</h4>
+            </div>
+            <div class="industry-item">
+                <div class="industry-icon">🏥</div>
+                <h4>Healthcare</h4>
+            </div>
+            <div class="industry-item">
+                <div class="industry-icon">⚗️</div>
+                <h4>Chemical Processing</h4>
+            </div>
+            <div class="industry-item">
+                <div class="industry-icon">📦</div>
+                <h4>Logistics</h4>
+            </div>
+            <div class="industry-item">
+                <div class="industry-icon">🏢</div>
+                <h4>General Industry</h4>
+            </div>
+        </div>
+    </section>
 
-      <!-- load CDN resources -->
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  </body>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Safety Culture?</h2>
+            <p>Let's discuss how we can help you achieve zero incidents and full compliance</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/+919879757009" target="_blank" rel="noopener noreferrer" class="cta-white">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    WhatsApp Me Now
+                </a>
+                <a href="mailto:himanshupandya81@gmail.com" class="cta-white">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <path d="m22 7-10 5L2 7"/>
+                    </svg>
+                    Send Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Ved EHS Consultancy</h4>
+                <p>Your trusted partner in creating safer workplaces with 34+ years of multinational experience.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#services">Services</a></p>
+                <p><a href="#about">About</a></p>
+                <p><a href="#industries">Industries</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>📧 himanshupandya81@gmail.com</p>
+                <p>📱 +91 9879757009</p>
+                <p>📍 Gandhinagar, Gujarat</p>
+            </div>
+            <div class="footer-section">
+                <h4>Get In Touch</h4>
+                <p><a href="https://wa.me/+919879757009" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a></p>
+                <p><a href="mailto:himanshupandya81@gmail.com">📧 Email Us</a></p>
+                <p><a href="tel:+919879757009">📞 Call Now</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> Ved EHS Consultancy. All rights reserved.</p>
+        </div>
+    </footer>
+    </div>
+
+    <script>
+        // Set current year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
